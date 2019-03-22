@@ -5,7 +5,6 @@
 <img src="_/micross.jpg" alt width="400">
 
 <br>
-<br>
 
 ### 실습
 
