@@ -2,8 +2,9 @@
 
 공군본부 Vue.js 프레임워크 학습 저장소 입니다.
 
-<img src="//yamoo9.github.io/vue/images//vue.jpg" alt style="width: 300px;">
+<img src="_/micross.jpg" alt style="width: 400px;">
 
+<br>
 <br>
 
 ### 실습
