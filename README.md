@@ -2,7 +2,7 @@
 
 공군본부 Vue.js 프레임워크 학습 저장소 입니다.
 
-<img src="_/micross.jpg" alt style="width: 400px;">
+<img src="_/micross.jpg" alt width="400">
 
 <br>
 <br>
