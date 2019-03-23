@@ -5,11 +5,8 @@
 </template>
 
 <script>
-import appButton from '@/components/appButton.vue'
-
 export default {
   name: 'appNavigationOpenButton',
-  components: { appButton },
   methods: {
     onShowNavigation() {
       console.log('내비게이션 메뉴 열기 버튼이 클릭 됨.')

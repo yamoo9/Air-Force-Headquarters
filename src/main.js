@@ -4,6 +4,9 @@ import '@/assets/app.css'
 import Vue from 'vue'
 import App from './App.vue'
 
+// 글로벌 컴포넌트 파일 로드
+import './registerGlobalComponents.js'
+
 Vue.config.productionTip = false
 
 new Vue({
