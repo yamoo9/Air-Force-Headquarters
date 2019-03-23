@@ -7,10 +7,10 @@
 <script>
 export default {
   name: 'appButton',
-  props: ['onClickHandler', 'appLog'],
+  props: ['isShowNavigationValue'],
   methods: {
     onClick() {
-      this.onClickHandler()
+      this.$emit('click', this.isShowNavigationValue)
     },
   },
 }

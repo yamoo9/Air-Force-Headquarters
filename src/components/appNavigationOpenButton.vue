@@ -4,8 +4,8 @@
   </button> -->
   <app-button
     class="is-open"
-    v-bind:on-click-handler="onShowNavigation"
-    v-bind:app-log="appLog"
+    v-bind:isShowNavigationValue="true"
+    v-on:click="onClick"
   >
     <img src="../assets/images/navigation-button.gif" alt="메뉴 열기" />
   </app-button>
@@ -14,10 +14,9 @@
 <script>
 export default {
   name: 'appNavigationOpenButton',
-  props: ['appLog'],
   methods: {
-    onShowNavigation() {
-      console.log(this.appLog)
+    onClick(value) {
+      this.$emit('click', value)
     },
   },
 }
