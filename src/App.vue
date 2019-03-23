@@ -2,43 +2,26 @@
   <div id="app">
     <header class="app-header">
       <h1 class="brand">
-        <a v-bind:href="brand.href" target="_blank">
+        <a
+          v-if="brand.type.includes('image')"
+          v-bind:href="brand.href"
+          target="_blank"
+        >
           <span class="a11y-hidden">{{ brand.title }}</span>
+        </a>
+        <a v-else b-bind:href="brand.href" class="brand-text">
+          {{ brand.title }}
         </a>
       </h1>
       <button type="button" class="button is-open">
         <img src="./assets/images/navigation-button.gif" alt="메뉴 열기" />
       </button>
       <nav hidden class="app-navigation">
+        <!-- <nav class="app-navigation is-active"> -->
         <ul class="reset-list">
-          <li>
-            <a v-bind:href="navigation[0].href" target="_blank">
-              {{ navigation[0].text }}
-            </a>
-          </li>
-          <li>
-            <a v-bind:href="navigation[1].href" target="_blank">
-              {{ navigation[1].text }}
-            </a>
-          </li>
-          <li>
-            <a v-bind:href="navigation[2].href" target="_blank">
-              {{ navigation[2].text }}
-            </a>
-          </li>
-          <li>
-            <a v-bind:href="navigation[3].href" target="_blank">
-              {{ navigation[3].text }}
-            </a>
-          </li>
-          <li>
-            <a v-bind:href="navigation[4].href" target="_blank">
-              {{ navigation[4].text }}
-            </a>
-          </li>
-          <li>
-            <a v-bind:href="navigation[5].href" target="_blank">
-              {{ navigation[5].text }}
+          <li v-for="item in navigation" v-bind:key="item.id">
+            <a v-bind:href="item.href" target="_blank">
+              {{ item.text }}
             </a>
           </li>
         </ul>
@@ -62,11 +45,19 @@ export default {
   name: 'app',
   data() {
     return {
-      brand,
+      brand: { ...brand, type: 'image' },
       navigation,
     }
   },
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="sass">
+.brand
+  .brand-text
+    background-image: none
+    width: auto
+    font-size: 20px
+    font-weight: 900
+    color: #5372C4
+</style>
