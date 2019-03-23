@@ -1,17 +1,15 @@
 <template>
-  <button
-    type="button"
-    class="button is-close-menu"
-    aria-label="메뉴 닫기"
-    v-on:click="onHideNavigation"
-  >
+  <app-button class="is-close-menu" aria-label="메뉴 닫기">
     ×
-  </button>
+  </app-button>
 </template>
 
 <script>
+import appButton from '@/components/appButton.vue'
+
 export default {
   name: 'appNavigationCloseButton',
+  components: { appButton },
   methods: {
     onHideNavigation() {
       console.log('내비게이션 메뉴 닫기 버튼이 클릭 됨.')
