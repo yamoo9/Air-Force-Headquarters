@@ -30,3 +30,4 @@
 [lesson01.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson01.zip) | Vue CLI 3를 사용한 프로제트 생성 및 스캐폴딩
 [lesson02.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson02.zip) | 이디야(Ediya) UI 예제 → Vue.js 프레임워크 적용
 [lesson03.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson03.zip) | 이디야(Ediya) UI 헤더 영역 → 선언적 렌더링, 속성 바인딩
+[lesson04.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson04.zip) | 이디야(Ediya) UI 헤더 영역 → 조건부 렌더링, 리스트 렌더링
