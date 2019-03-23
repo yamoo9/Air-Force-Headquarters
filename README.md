@@ -23,6 +23,8 @@
 
 ### 실습 자료
 
+수업 진행 내용 학습자료 입니다.
+
 자료 | 설명
 --- | ---
 [lesson-1.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesston-01.zip) | Vue CLI 3를 사용한 프로제트 생성 및 스캐폴딩
