@@ -13,11 +13,18 @@
           {{ brand.title }}
         </a>
       </h1>
-      <button type="button" class="button is-open">
+      <button
+        type="button"
+        class="button is-open"
+        v-on:click="isShowNavigation = true"
+      >
         <img src="./assets/images/navigation-button.gif" alt="메뉴 열기" />
       </button>
-      <nav hidden class="app-navigation">
-        <!-- <nav class="app-navigation is-active"> -->
+      <nav
+        v-bind:hidden="!isShowNavigation"
+        class="app-navigation"
+        v-bind:class="isShowNavigation ? 'is-active' : null"
+      >
         <ul class="reset-list">
           <li v-for="item in navigation" v-bind:key="item.id">
             <a v-bind:href="item.href" target="_blank">
@@ -29,6 +36,7 @@
           type="button"
           class="button is-close-menu"
           aria-label="메뉴 닫기"
+          v-on:click="isShowNavigation = false"
         >
           ×
         </button>
@@ -47,6 +55,7 @@ export default {
     return {
       brand: { ...brand, type: 'image' },
       navigation,
+      isShowNavigation: false,
     }
   },
 }
