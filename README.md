@@ -32,3 +32,4 @@
 [lesson03.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson03.zip) | 이디야(Ediya) UI 헤더 영역 → 선언적 렌더링, 속성 바인딩
 [lesson04.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson04.zip) | 이디야(Ediya) UI 헤더 영역 → 조건부 렌더링, 리스트 렌더링
 [lesson05.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson05.zip) | 이디야(Ediya) UI 헤더 영역 → 이벤트 바인딩
+[lesson06.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson06.zip) | 이디야(Ediya) UI 헤더 영역 → 메서드와 계산된 속성
