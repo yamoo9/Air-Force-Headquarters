@@ -9,13 +9,7 @@
           {{ brand.title }}
         </a>
       </h1>
-      <button
-        type="button"
-        class="button is-open"
-        v-on:click="onShowNavigation"
-      >
-        <img src="./assets/images/navigation-button.gif" alt="메뉴 열기" />
-      </button>
+      <app-navigation-open-button />
       <nav class="app-navigation" v-bind:class="navigationClassViewState">
         <ul class="reset-list">
           <li v-for="item in navigation" v-bind:key="item.id">
@@ -24,14 +18,7 @@
             </a>
           </li>
         </ul>
-        <button
-          type="button"
-          class="button is-close-menu"
-          aria-label="메뉴 닫기"
-          v-on:click="onHideNavigation"
-        >
-          ×
-        </button>
+        <app-navigation-close-button />
       </nav>
     </header>
   </div>
@@ -41,8 +28,15 @@
 import { data as ediyaNav } from './api/ediya-navigation.json'
 const { brand, navigation } = ediyaNav
 
+import appNavigationOpenButton from '@/components/appNavigationOpenButton.vue'
+import appNavigationCloseButton from '@/components/appNavigationCloseButton.vue'
+
 export default {
   name: 'app',
+  components: {
+    appNavigationOpenButton,
+    appNavigationCloseButton,
+  },
   data() {
     return {
       brand: { ...brand, type: 'image' },

@@ -1,0 +1,17 @@
+<template>
+  <!-- <button type="button" class="button is-open" v-on:click="onShowNavigation"> -->
+  <button type="button" class="button is-open" v-on:click="onShowNavigation">
+    <img src="../assets/images/navigation-button.gif" alt="메뉴 열기" />
+  </button>
+</template>
+
+<script>
+export default {
+  name: 'appNavigationOpenButton',
+  methods: {
+    onShowNavigation() {
+      console.log('내비게이션 메뉴 열기 버튼이 클릭 됨.')
+    },
+  },
+}
+</script>
