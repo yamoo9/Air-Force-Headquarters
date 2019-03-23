@@ -34,3 +34,4 @@
 [lesson05.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson05.zip) | 이디야(Ediya) UI 헤더 영역 → 이벤트 바인딩
 [lesson06.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson06.zip) | 이디야(Ediya) UI 헤더 영역 → 메서드와 계산된 속성
 [lesson07.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson07.zip) | 이디야(Ediya) UI 헤더 영역 → 컴포넌트
+[lesson08.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson08.zip) | 이디야(Ediya) UI 헤더 영역 → 슬롯
