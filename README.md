@@ -2,32 +2,37 @@
 
 ## 프로젝트 설치
 
-```
-npm install
+```sh
+yarn install
+# npm install
 ```
 
 ### 개발 서버 구동
 
-```
-npm run serve
+```sh
+yarn serve
+# npm run serve
 ```
 
 ### 배포
 
-```
-npm run build
+```sh
+yarn build
+# npm run build
 ```
 
 ### 테스트
 
-```
-npm run test
+```sh
+yarn test
+# npm run test
 ```
 
 ### 린트, 파일 수정
 
-```
-npm run lint
+```sh
+yarn lint
+# npm run lint
 ```
 
 ### 사용자 정의 설정
