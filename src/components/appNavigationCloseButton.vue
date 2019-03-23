@@ -1,5 +1,10 @@
 <template>
-  <app-button class="is-close-menu" aria-label="메뉴 닫기">
+  <app-button
+    class="is-close-menu"
+    aria-label="메뉴 닫기"
+    v-bind:on-click-handler="onHideNavigation"
+    v-bind:app-log="appLog"
+  >
     ×
   </app-button>
 </template>
@@ -7,9 +12,10 @@
 <script>
 export default {
   name: 'appNavigationCloseButton',
+  props: ['onClickHandler', 'appLog'],
   methods: {
     onHideNavigation() {
-      console.log('내비게이션 메뉴 닫기 버튼이 클릭 됨.')
+      console.log(this.appLog)
     },
   },
 }

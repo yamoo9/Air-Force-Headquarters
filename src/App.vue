@@ -9,7 +9,10 @@
           {{ brand.title }}
         </a>
       </h1>
-      <app-navigation-open-button />
+      <app-navigation-open-button
+        v-on:click="onShowNavigation"
+        app-log="내비게이션 메뉴 열기 버튼이 클릭 됨."
+      />
       <nav class="app-navigation" v-bind:class="navigationClassViewState">
         <ul class="reset-list">
           <li v-for="item in navigation" v-bind:key="item.id">
@@ -18,7 +21,9 @@
             </a>
           </li>
         </ul>
-        <app-navigation-close-button />
+        <app-navigation-close-button
+          app-log="내비게이션 메뉴 닫기 버튼이 클릭 됨."
+        />
       </nav>
     </header>
   </div>
