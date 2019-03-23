@@ -1,3 +1,6 @@
+// CSS 파일 로드
+import '@/assets/app.css'
+
 import Vue from 'vue'
 import App from './App.vue'
 
