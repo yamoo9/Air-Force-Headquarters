@@ -36,4 +36,5 @@
 [lesson07.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson07.zip) | 이디야(Ediya) UI 헤더 영역 → 컴포넌트
 [lesson08.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson08.zip) | 이디야(Ediya) UI 헤더 영역 → 슬롯
 [lesson09.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson09.zip) | 이디야(Ediya) UI 헤더 영역 → 글로벌 컴포넌트
-[lesson10.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson10.zip) | 이디야(Ediya) UI 헤더 영역 → 속성 전달, 커스텀 이벤트
+[lesson10.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson10.zip) | 이디야(Ediya) UI 헤더 영역 → 컴포넌트 통신: 속성 전달, 커스텀 이벤트
+[lesson11.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson11.zip) | 이디야(Ediya) UI 메인 영역 → 종합(렌더링, 바인딩, 컴포넌트, 슬롯, 통신) 적용
