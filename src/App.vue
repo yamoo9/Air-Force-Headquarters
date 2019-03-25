@@ -29,16 +29,16 @@ export default {
     this.fetchData()
   },
   methods: {
-    fetchData() {
+    async fetchData() {
       const { getEdiyaMenu, getEdiyaNavigation } = api
-      getEdiyaMenu().then((data) => {
-        this.ediyaMenu = data
-        this.changeFigureImagePath()
-      })
-      getEdiyaNavigation().then(({ brand, navigation }) => {
-        this.brand = Object.assign(this.brand, brand)
-        this.navigation = navigation
-      })
+
+      this.ediyaMenu = await getEdiyaMenu()
+      this.changeFigureImagePath()
+
+      const { brand, navigation } = await getEdiyaNavigation()
+
+      this.brand = Object.assign(this.brand, brand)
+      this.navigation = navigation
     },
     changeFigureImagePath() {
       for (let { figure } of this.ediyaMenu) {
