@@ -8,7 +8,7 @@
 
 ### 실습
 
-단계 별 학습 자료를 실습하려면 적절한 브랜치(Branch)를 선택해 자료를 다운로드 받거나, 코드를 참고할 수 있습니다.
+단계 별 학습 자료를 실습하려면 적절한 브랜치(Branch)를 선택해 자료를 다운로드 받거나, 코드를 참고할 수 있습니다.<br>
 예를 들어 7단계 학습 자료는 `lesson-7` 브랜치를 선택합니다.
 
 <br>
@@ -16,6 +16,18 @@
 ### 가이드북
 
 수업은 [Vue.js 러닝 가이드](https://yamoo9.github.io/vue/)를 통해 진행됩니다.
+
+<br>
+
+### 비교
+
+순수 웹 기술인 HTML, CSS, JavaScript, DOM API를 활용해 제작된 결과물
+
+<img src="_/HTML+CSS+JavaScript.png" alt>
+
+Vue.js 프레임워크를 활용해 제작된 결과물
+
+<img src="_/VueFramework.png" alt>
 
 <br>
 
