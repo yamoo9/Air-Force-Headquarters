@@ -47,4 +47,5 @@ Vue.js 프레임워크를 활용해 제작된 결과물
 [lesson13.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson13.zip) | 이디야(Ediya) UI → API 비동기 처리 (with Axios)
 [lesson14.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson14.zip) | 이디야(Ediya) UI → API 서비스(Service) 모듈
 [lesson15.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson15.zip) | 이디야(Ediya) UI → async/await 활용
-[lesson16.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson16.zip) | 이디야(Ediya) UI 튜토리얼 완료
+[lesson16.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson16.zip) | 이디야(Ediya) UI → 배포(build : [※ 참고](https://github.com/vuejs/vue-cli/issues/3678))
+[lesson17.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson17.zip) | 이디야(Ediya) UI 튜토리얼 완료
