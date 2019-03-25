@@ -6,7 +6,7 @@
       </a>
       <a v-else :href="brand.href" class="brand-text">{{ brand.title }}</a>
     </h1>
-    <app-button class="is-open" @click="onShowNavigation">
+    <app-button class="is-open" @click.native="onShowNavigation">
       <img src="../assets/images/navigation-button.gif" alt="메뉴 열기" />
     </app-button>
     <nav class="app-navigation" :class="navigationClassViewState">
@@ -18,7 +18,7 @@
       <app-button
         class="is-close-menu"
         aria-label="메뉴 닫기"
-        @click="onHideNavigation"
+        @click.native="onHideNavigation"
       >
         ×
       </app-button>

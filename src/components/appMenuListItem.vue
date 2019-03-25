@@ -30,7 +30,7 @@
         </p>
       </div>
       <app-button
-        @click="close"
+        @click.native="close"
         class="is-close-panel"
         aria-label="아이템 소개 패널 닫기"
       >
@@ -73,8 +73,7 @@ export default {
 }
 </script>
 
-<style scoped>
-.ediya-menu__item--detail {
-  z-index: -1;
-}
+<style lang="sass" scoped>
+.ediya-menu__item--detail
+  z-index: -1
 </style>
