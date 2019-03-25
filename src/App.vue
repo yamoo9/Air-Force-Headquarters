@@ -2,25 +2,24 @@
   <div id="app">
     <header class="app-header">
       <h1 class="brand">
-        <a v-if="checkBrandType" v-bind:href="brand.href" target="_blank">
+        <a v-if="checkBrandType" :href="brand.href" target="_blank">
           <span class="a11y-hidden">{{ brand.title }}</span>
         </a>
-        <a v-else v-bind:href="brand.href" class="brand-text">
-          {{ brand.title }}
-        </a>
+        <a v-else :href="brand.href" class="brand-text">{{ brand.title }}</a>
       </h1>
-      <app-navigation-open-button v-on:click="onChangeStateNavigation" />
-      <nav class="app-navigation" v-bind:class="navigationClassViewState">
+      <app-navigation-open-button @click="onChangeStateNavigation" />
+      <nav class="app-navigation" :class="navigationClassViewState">
         <ul class="reset-list">
-          <li v-for="item in navigation" v-bind:key="item.id">
-            <a v-bind:href="item.href" target="_blank">
-              {{ item.text }}
-            </a>
+          <li v-for="item in navigation" :key="item.id">
+            <a :href="item.href" target="_blank">{{ item.text }}</a>
           </li>
         </ul>
-        <app-navigation-close-button v-on:click="onChangeStateNavigation" />
+        <app-navigation-close-button @click="onChangeStateNavigation" />
       </nav>
     </header>
+    <main class="app-main">
+      <app-menu-list :menu="ediyaMenu"></app-menu-list>
+    </main>
   </div>
 </template>
 
@@ -28,20 +27,39 @@
 import { data as ediyaNav } from './api/ediya-navigation.json'
 const { brand, navigation } = ediyaNav
 
+import { data as ediyaMenu } from './api/ediya-menu.json'
+
 import appNavigationOpenButton from '@/components/appNavigationOpenButton.vue'
 import appNavigationCloseButton from '@/components/appNavigationCloseButton.vue'
+import appMenuList from './components/appMenuList.vue'
 
 export default {
   name: 'app',
   components: {
     appNavigationOpenButton,
     appNavigationCloseButton,
+    appMenuList,
   },
   data() {
     return {
       brand: { ...brand, type: 'image' },
       navigation,
       isShowNavigation: false,
+      ediyaMenu,
+    }
+  },
+  created() {
+    for (let { figure } of this.ediyaMenu) {
+      for (let key in figure) {
+        if (figure.hasOwnProperty(key) && key === 'name') {
+          this.$set(
+            figure,
+            'path',
+            require(`./assets/images/${figure[key]}.png`)
+          )
+          break
+        }
+      }
     }
   },
   computed: {
