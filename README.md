@@ -10,11 +10,11 @@
 
 순수 웹 기술인 HTML, CSS, JavaScript, DOM API를 활용해 제작된 결과물
 
-<img src="_/HTML+CSS+JavaScript.png" alt>
+<img src="_/HTML+CSS+JavaScript.jpg" alt>
 
 Vue.js 프레임워크를 활용해 제작된 결과물
 
-<img src="_/VueFramework.png" alt>
+<img src="_/VueFramework.jpg" alt>
 
 <br>
 
@@ -43,4 +43,5 @@ Vue.js 프레임워크를 활용해 제작된 결과물
 [lesson09.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson09.zip) | 이디야(Ediya) UI 헤더 영역 → 글로벌 컴포넌트
 [lesson10.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson10.zip) | 이디야(Ediya) UI 헤더 영역 → 컴포넌트 통신: 속성 전달, 커스텀 이벤트
 [lesson11.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson11.zip) | 이디야(Ediya) UI 메인 영역 → 종합(렌더링, 바인딩, 컴포넌트, 슬롯, 통신) 적용
-[lesson12.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson12.zip) | 이디야(Ediya) UI → 리팩토링
+[lesson12.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson12.zip) | 이디야(Ediya) UI 헤더 영역 → 앱 헤더 컴포넌트로 분리
+[lesson13.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson13.zip) | 이디야(Ediya) UI → API 비동기 처리 (with Axios)
