@@ -1,0 +1,139 @@
+{
+  "vBind": {
+    "prefix": "v-bind",
+    "body": [
+      "${3:v-bind}:${1:attr}=\"${2:value}\""
+    ],
+    "description": "vue.js - v-bind 디렉티브로 연결된 속성 집합(객체) 설정"
+  },
+  "vBindAttrs": {
+    "prefix": "v-bind:attrs",
+    "body": [
+      "v-bind=\"\\$attrs\""
+    ],
+    "description": "vue.js - v-bind 디렉티브로 연결된 속성 집합(객체) 설정"
+  },
+  "vIf": {
+    "prefix": "v-if",
+    "body": [
+      "v-if=\"${1:expression}\""
+    ],
+    "description": "vue.js - if 디렉티브"
+  },
+  "vElseIf": {
+    "prefix": "v-else-if",
+    "body": [
+      "v-else-if=\"${1:expression}\" $0"
+    ],
+    "description": "vue.js - else if 디렉티브"
+  },
+  "vFor": {
+    "prefix": "v-for",
+    "body": [
+      "v-for=\"${2:item} in ${1:items}\"$0"
+    ],
+    "description": "vue.js - for 디렉티브"
+  },
+  "vForIndex": {
+    "prefix": "v-for-i",
+    "body": [
+      "v-for=\"(${2:item},${3:i}) in ${1:items}\" :key=\"${3:i}\"$0"
+    ],
+    "description": "vue.js - for 디렉티브"
+  },
+  "vClass": {
+    "prefix": "v-class",
+    "body": [
+      "${3:v-bind}:class=\"{${1:cssClass}: ${2:expression}}\""
+    ],
+    "description": "vue.js - class 디렉티브"
+  },
+  "vStyle": {
+    "prefix": "v-style",
+    "body": [
+      "${3:v-bind}:style=\"{${1:attr}: ${2:value}}\""
+    ],
+    "description": "vue.js - style 디렉티브"
+  },
+  "vHref": {
+    "prefix": "v-href",
+    "body": [
+      "${2:v-bind}:href=\"${1:expression}\""
+    ],
+    "description": "vue.js - href 디렉티브"
+  },
+  "vShow": {
+    "prefix": "v-show",
+    "body": [
+      "v-show=\"${1:expression}\""
+    ],
+    "description": "vue.js - show 디렉티브"
+  },
+  "vModel": {
+    "prefix": "v-model",
+    "body": [
+      "v-model=\"${1:expression}\""
+    ],
+    "description": "vue.js - model 디렉티브"
+  },
+  "vOn": {
+    "prefix": "v-on",
+    "body": [
+      "@${1:type}=\"${2:listener}(${3:arg}, ${4:event})\""
+    ],
+    "description": "vue.js - 상위 컴포넌트의 v-on 이벤트 상속"
+  },
+  "vOnListeners": {
+    "prefix": "v-on:listeners",
+    "body": [
+      "v-on=\"\\$listeners\""
+    ],
+    "description": "vue.js - 상위 컴포넌트의 v-on 이벤트 상속"
+  },
+  "vOnSubmit": {
+    "prefix": "v-on:submit",
+    "body": [
+      "@submit${2:.prevent}=\"${1:expression}\""
+    ],
+    "description": "vue.js - @submit 이벤트"
+  },
+  "vOnClick": {
+    "prefix": "v-on:click",
+    "body": [
+      "@click${2:.prevent}=\"${1:expression}\""
+    ],
+    "description": "vue.js - @click 이벤트"
+  },
+
+  // Vue Router --------------------------------------------------------------------
+  // alias, props
+  "vRouterView": {
+    "prefix": "vr-view",
+    "body": [
+      "<router-view>${1:Loading...}</router-view>"
+    ],
+    "description": "Vue Router - 라우터 뷰"
+  },
+  "vRouterLink": {
+    "prefix": "vr-link",
+    "body": [
+      "<router-link to=\"${1:linkPath}\">${2:linkName}</router-link>"
+    ],
+    "description": "Vue Router - 라우터 링크"
+  },
+  "vRouterNamedLink": {
+    "prefix": "vr-named-link",
+    "body": [
+      "<router-link :to=\"{ name: '${1:routeName}' }\">${3:linkName}</router-link>"
+    ],
+    "description": "Vue Router - 이름이 있는 라우터 링크"
+  },
+  "vRouterNamedParamsLink": {
+    "prefix": "vr-named-params-link",
+    "body": [
+      "<router-link :to=\"{ name: '${1:routeName}'${2:, params: {\\}} }\">${3:linkName}</router-link>"
+    ],
+    "description": "Vue Router - 이름, 매개변수가 있는 라우터 링크"
+  },
+
+}

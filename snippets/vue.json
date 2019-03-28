@@ -1,0 +1,93 @@
+{
+  "HMTL 템플릿": {
+    "prefix": "v-template",
+    "body": [
+      "<template>",
+      "  $0",
+      "</template>"
+    ],
+    "description": "template for html"
+  },
+  "Pug 템플릿": {
+    "prefix": "v-template-pug",
+    "body": [
+      "<template lang=\"pug\">",
+      "  $0",
+      "</template>"
+    ],
+    "description": "template for html"
+  },
+  "Vue 비즈니스 로직": {
+    "prefix": "v-script",
+    "body": [
+      "<script>",
+      "export default {",
+      "  name: '${1:컴포넌트 이름}',",
+      "  $0",
+      "}",
+      "</script>"
+    ],
+    "description": "Vue 비즈니스 로직"
+  },
+  "Vue 스타일": {
+    "prefix": "v-style",
+    "body": [
+      "<style${1: scoped}>",
+      "  $0",
+      "</style>"
+    ],
+    "description": "Vue 스타일"
+  },
+  "Vue 프리프로세서 스타일": {
+    "prefix": "v-style-lang",
+    "body": [
+      "<style lang=\"${1:sass}\"${2: scoped}>",
+      "  $0",
+      "</style>"
+    ],
+    "description": "Vue 프리프로세서 스타일"
+  },
+  "Vue SFC 스캐폴딩": {
+    "prefix": "v-base",
+    "body": [
+      "<template>",
+      "\t",
+      "</template>",
+      "",
+      "<script>",
+      "export default {",
+      "  name: '${1:컴포넌트 이름}',",
+      "  $0",
+      "}",
+      "</script>",
+      "",
+      "<style scoped>",
+      "\t",
+      "</style>"
+    ],
+    "description": "Vue SFC 스캐폴딩"
+  },
+  "Vue TypeScript 템플릿": {
+    "prefix": "vt-base",
+    "description": "Vue TypeScript 컴포넌트",
+    "body": [
+      "<template>",
+      "\t",
+      "</template>",
+      "",
+      "<script lang=\"ts\">",
+      "\timport Vue from 'vue';",
+      "\timport { Component${1:, Prop, Emit, Watch} } from 'vue-property-decorator';",
+      "",
+      "\t@Component($3)",
+      "\texport default class ${2:Component} extends Vue {",
+      "\t\t$0",
+      "\t};",
+      "</script>",
+      "",
+      "<style scoped>",
+      "\t",
+      "</style>"
+    ]
+  },
+}

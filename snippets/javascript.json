@@ -1,0 +1,513 @@
+{
+  // JavaScript ------------------------------------------------
+  "fn-array-extends": {
+    "prefix": "fn-array-extends",
+    "body": "\nif (!('indexOf' in Array.prototype)) {\n    Array.prototype.indexOf= function(find, i /*opt*/) {\n        if (i===undefined) i= 0;\n        if (i<0) i+= this.length;\n        if (i<0) i= 0;\n        for (var n= this.length; i<n; i++)\n            if (i in this && this[i]===find)\n                return i;\n        return -1;\n    };\n}\nif (!('lastIndexOf' in Array.prototype)) {\n    Array.prototype.lastIndexOf= function(find, i /*opt*/) {\n        if (i===undefined) i= this.length-1;\n        if (i<0) i+= this.length;\n        if (i>this.length-1) i= this.length-1;\n        for (i++; i-->0;) /* i++ because from-argument is sadly inclusive */\n            if (i in this && this[i]===find)\n                return i;\n        return -1;\n    };\n}\nif (!('forEach' in Array.prototype)) {\n    Array.prototype.forEach= function(action, that /*opt*/) {\n        for (var i= 0, n= this.length; i<n; i++)\n            if (i in this)\n                action.call(that, this[i], i, this);\n    };\n}\nif (!('map' in Array.prototype)) {\n    Array.prototype.map= function(mapper, that /*opt*/) {\n        var other= new Array(this.length);\n        for (var i= 0, n= this.length; i<n; i++)\n            if (i in this)\n                other[i]= mapper.call(that, this[i], i, this);\n        return other;\n    };\n}\nif (!('filter' in Array.prototype)) {\n    Array.prototype.filter= function(filter, that /*opt*/) {\n        var other= [], v;\n        for (var i=0, n= this.length; i<n; i++)\n            if (i in this && filter.call(that, v= this[i], i, this))\n                other.push(v);\n        return other;\n    };\n}\nif (!('every' in Array.prototype)) {\n    Array.prototype.every= function(tester, that /*opt*/) {\n        for (var i= 0, n= this.length; i<n; i++)\n            if (i in this && !tester.call(that, this[i], i, this))\n                return false;\n        return true;\n    };\n}\nif (!('some' in Array.prototype)) {\n    Array.prototype.some= function(tester, that /*opt*/) {\n        for (var i= 0, n= this.length; i<n; i++)\n            if (i in this && tester.call(that, this[i], i, this))\n                return true;\n        return false;\n    };\n}\n",
+    "description": "배열 객체 확장",
+  },
+  "fn-bind": {
+    "prefix": "fn-bind",
+    "body": "if (!('bind' in Function.prototype)) {\n    Function.prototype.bind= function(owner) {\n        var that= this;\n        if (arguments.length<=1) {\n            return function() { return that.apply(owner, arguments); };\n        } else {\n            var args= Array.prototype.slice.call(arguments, 1);\n            return function() {\n                return that.apply(owner, arguments.length===0? args : args.concat(Array.prototype.slice.call(arguments)));\n            };\n        }\n    };\n};",
+    "description": "함수 객체 확장 - bind",
+  },
+  "fn-obj-create": {
+    "prefix": "fn-obj-create",
+    "body": "\nif(!Object.create) {\n\tObject.create = function(obj) {\n\t\tif(arguments.length > 1) {\n\t\t\tthrow new Error('전달인자는 하나(객체)여야 합니다.');\n\t\t};\n\t\tfunction F() {};\n\t\tF.prototype = obj;\n\t\treturn new F;\n\t};\n};\n",
+    "description": "객체 확장 - create",
+  },
+  "fn-str-trim": {
+    "prefix": "fn-str-trim",
+    "body": "if(!('trim' in String.prototype)) {\n    String.prototype.trim= function() {\n\t\treturn this.replace(/^\\s+/, '').replace(/\\s+$/, '');\n\t};\n};",
+    "description": "문자 객체 확장 - trim",
+  },
+  "cleanwhitespace": {
+    "prefix": "cleanwhitespace",
+    "body": "\nfunction cleanWhiteSpace(element) {\n    element = element || document;\n    var cur = element.firstChild;\n    while ( cur !== null ) {\n        if( cur.nodeType === 3 && ! /\\S/.test(cur.nodeValue) ) {\n            element.removeChild(cur);\n        } else if(cur.nodeType === 1) {\n            cleanWhiteSpace(cur);\n        }\n        cur = cur.nextSibling;\n    }\n}\n",
+    "description": "",
+  },
+  "fn-extend": {
+    "prefix": "fn-extend",
+    "body": "function extend( obj ) {\n\tif ( !arguments[1] ) { return obj; }\n\tfor ( var i=1, l=arguments.length, source, prop; i<l; i++ ) {\n\t\tsource = arguments[i];\n\t\tif ( source.constructor !== Object ) { throw new Error('전달인자가 객체가 아닙니다.'); return; }\n\t\tfor ( prop in source ) {\n\t\t\tif (\n\t\t\t\t( !obj[prop] && source.hasOwnProperty(prop) ) ||\n\t\t\t\t( prop in obj && prop in source )\n\t\t\t) { obj[prop] = source[prop]; }\n\t\t}\n\t\treturn obj;\n\t}\n}",
+    "description": "extend 헬퍼함수",
+  },
+  "fn": {
+    "prefix": "fn",
+    "body": "function ($1) {\n\t$2\n}",
+    "description": "익명함수",
+  },
+  "IIFE": {
+    "prefix": "iife",
+    "body": [
+      "(function($2){",
+      " 'use strict';",
+      " $0",
+      "})($1);"
+    ],
+    "description": "즉시 실행 함수 (모듈 패턴)"
+  },
+  "ES6-IIFE": {
+    "prefix": "iife-es6",
+    "body": [
+      ";((${2:global}) => {",
+      "  $0",
+      "})(${1:window})",
+    ],
+    "description": "ES6 즉시 실행 함수 (모듈 패턴)"
+  },
+  "insertAdjacentHTML": {
+    "prefix": "insertAdjacentHTML",
+    "body": "insertAdjacentHTML('${1:beforebegin | afterbegin | beforeend | afterend}', '${2:HTML Code}');\n",
+    "description": "",
+  },
+  "keyboard": {
+    "prefix": "keyboard",
+    "body": "\n/*\n키보드 코드 참조 (Keyboard codes reference)\nKey\tKeyboard code\nBackspace\t8\nTab\t        9\nEnter\t    13\nShift\t    16\nCtrl\t    17\nAlt\t        18\nPause\t    19\nCapslock\t20\nEsc\t        27\nPage up\t    33\nPage down\t34\nEnd\t        35\nHome\t    36\nLeft arrow\t37\nUp arrow\t38\nRight arrow\t39\nDown arrow\t40\nInsert\t    45\nDelete\t    46\n0\t        48\n1\t        49\n2\t        50\n3\t        51\n4\t        52\n5\t        53\n6\t        54\n7\t        55\n8\t        56\n9\t        57\na\t        65\nb\t        66\nc\t        67\nd\t        68\ne\t        69\nf\t        70\ng\t        71\nh\t        72\ni\t        73\nj\t        74\nk\t        75\nl\t        76\nm\t        77\nn\t        78\no\t        79\np\t        80\nq\t        81\nr\t        82\ns\t        83\nt\t        84\nu\t        85\nv\t        86\nw\t        87\nx\t        88\ny\t        89\nz\t        90\n0 (numpad)\t96\n1 (numpad)\t97\n2 (numpad)\t98\n3 (numpad)\t99\n4 (numpad)\t100\n5 (numpad)\t101\n6 (numpad)\t102\n7 (numpad)\t103\n8 (numpad)\t104\n9 (numpad)\t105\n*\t        106\n+\t        107\n-\t        109\n.\t        110\n/\t        111\nF1\t        112\nF2\t        113\nF3\t        114\nF4\t        115\nF5\t        116\nF6\t        117\nF7\t        118\nF8\t        119\nF9\t        120\nF10\t        121\nF11\t        122\nF12\t        123\n=\t        187\nComa\t    188\nSlash /\t    191\nBackslash \\\t220\n*/\n",
+    "description": "키보드 키코드 참고",
+  },
+  "strict": {
+    "prefix": "strict",
+    "body": "'use strict';",
+    "description": "",
+  },
+  "ajax": {
+    "prefix": "ajax",
+    "body": "\nvar XMLHttpFactories, createXHR, sendRequest;\n\nXMLHttpFactories = [\n    function () {return new XMLHttpRequest()},\n    function () {return new ActiveXObject(\"Msxml2.XMLHTTP\")},\n    function () {return new ActiveXObject(\"Msxml3.XMLHTTP\")},\n    function () {return new ActiveXObject(\"Microsoft.XMLHTTP\")}\n];\n\ncreateXHR = function () {\n    var xmlhttp = false;\n    for (var i=0;i<XMLHttpFactories.length;i++) {\n        try {\n            xmlhttp = XMLHttpFactories[i]();\n        }\n        catch (e) {\n            continue;\n        }\n        break;\n    }\n    return xmlhttp;\n};\n\nsendRequest = function (url,callback,postData) {\n    var req = createXHR();\n    if (!req) return;\n    var method = (postData) ? \"POST\" : \"GET\";\n    req.open(method,url,true);\n    req.setRequestHeader('User-Agent','XMLHTTP/1.0');\n    if (postData)\n        req.setRequestHeader('Content-type','application/x-www-form-urlencoded');\n    req.onreadystatechange = function () {\n        if (req.readyState != 4) return;\n        if (req.status != 200 && req.status != 304) {\n//          alert('HTTP error ' + req.status);\n            return;\n        }\n        callback(req);\n    }\n    if (req.readyState == 4) return;\n    req.send(postData);\n};\n",
+    "description": "AJAX 헬퍼 함수",
+  },
+
+  // Console ------------------------------------------------
+  "dir": {
+    "prefix": "dir",
+    "body": "console.dir($1);",
+    "description": "JS: Console - dir",
+  },
+  "error": {
+    "prefix": "error",
+    "body": "\nconsole.error($0);\n",
+    "description": "",
+  },
+  "log": {
+    "prefix": "log",
+    "body": "console.log($1);",
+    "description": "JS: Console",
+  },
+  "console": {
+    "prefix": "console",
+    "body": "console.${1:log}($2);",
+    "description": "콘솔: Console",
+  },
+  "console - label log": {
+    "prefix": "log-label",
+    "body": [
+      "console.log('$1:', $1)"
+    ],
+    "description": "확인용 콘솔 로그"
+  },
+  "console - group": {
+    "prefix": "log-group",
+    "body": [
+      "console.group('$1');",
+      "",
+      "$0",
+      "",
+      "console.groupEnd('$1');"
+    ],
+    "description": "그룹 콘솔 로그"
+  },
+  "console - time": {
+    "prefix": "log-time",
+    "body": [
+      "console.time('$1');",
+      "",
+      "$0",
+      "",
+      "console.timeEnd('$1');"
+    ],
+    "description": "타임 콘솔 로그"
+  },
+
+  // Comments ------------------------------------------------
+  "Comments - Author": {
+    "prefix": "cmt-author",
+    "body": [
+      "/*! ${1:파일이름}.${2:js} | 2019 @yamoo9 */\n\n$0"
+    ],
+    "description": "저작자 주석"
+  },
+  "Comments - Main": {
+    "prefix": "cmt",
+    "body": [
+      "/* ————————————————————————————————————${2:———}",
+      " * $1 */\n$0",
+    ],
+    "description": "메인 섹션 주석"
+  },
+  "Comments - Sub": {
+    "prefix": "cmt-sub",
+    "body": [
+      "// ------------------------------------${2:---}",
+      "// $1\n$0"
+    ],
+    "description": "서브 섹션 주석"
+  },
+
+  // ES6 -----------------------------------------------------
+  "ES6 화살표 함수": {
+    "prefix": "afn",
+    "body": [
+      "($1) => {$2}"
+    ],
+    "description": "ES6 Arrow Function"
+  },
+
+  // Vue.js --------------------------------------------------
+  "Vue 글로벌 컴포너트 자동 등록": {
+    "prefix": "v-auto-register-global-components",
+    "body": [
+      "import Vue from 'vue'",
+      "",
+      "// lodash 패키지 설치 필요",
+      "// $ yarn add lodash",
+      "import upperFirst from 'lodash/upperFirst'",
+      "import camelCase from 'lodash/camelCase'",
+      "",
+      "// require.context는 webpack에서 지원하는 함수",
+      "// https://webpack.js.org/guides/dependency-management/#requirecontext",
+      "const requireComponent = require.context(",
+      "  // 컴포넌트들이 있는 폴더",
+      "  './components',",
+      "  // 하위 폴더까지 포함할 지 여부",
+      "  false,",
+      "  // 기본 컴포넌트를 찾는데 사용할 정규표현식",
+      "  /${1:App}[A-Z]\\w+\\.(vue|js)$/",
+      ")",
+      "",
+      "requireComponent.keys().forEach(fileName => {",
+      "  // 컴포넌트 설정 가져오기",
+      "  const componentConfig = requireComponent(fileName)",
+      "",
+      "  // 컴포넌트의 파스칼 표기법 이름 가져오기",
+      "  const componentName = upperFirst(",
+      "    camelCase(",
+      "      // 파일이름 앞의 `./` 등 파스칼 표기법 이름에",
+      "      // 들어갈 필요없는 기호들을 제거",
+      "      fileName.replace(/^\\.\\/(.*)\\.\\w+$/, '\\$1')",
+      "    )",
+      "  )",
+      "",
+      "  // 컴포넌트를 전역적으로 등록",
+      "  Vue.component(",
+      "    componentName,",
+      "    // `export default`를 이용한 컴포넌트는 `.default`로 컴포넌트",
+      "    // 옵션을 추출하고 그렇지 않은 컴포넌트는 모듈의 루트를 호출",
+      "    componentConfig.default || componentConfig",
+      "  )",
+      "})"
+    ],
+    "description": "Vue 글로벌 컴포너트 자동 등록"
+  },
+
+
+  // Vuex ----------------------------------------------------
+  "Vuex 커밋 메서드": {
+    "prefix": "vx-commit",
+    "body": [
+      "this.\\$store.commit('${1:뮤테이션 메서드 이름}'${2:, 페이로드(옵션)});",
+    ],
+    "description": "Vuex 커밋 메서드"
+  },
+  "Vuex 디스패치 메서드": {
+    "prefix": "vx-dispatch",
+    "body": [
+      "this.\\$store.dispatch('${1:액션 메서드 이름}'${2:, 페이로드(옵션)});",
+    ],
+    "description": "Vuex 디스패치 메서드"
+  },
+  "Vuex 스토어 생성": {
+    "prefix": "vx-create-store",
+    "body": [
+      "import Vue from 'vue';",
+      "import Vuex from 'vuex';",
+      "",
+      "Vue.use(Vuex);",
+      "",
+      "export const store = new Vuex.Store({",
+      "\tstate: {$0},",
+      "\tmutations: {},",
+      "\tactions: {},",
+      "\tgetters: {}",
+      "});"
+    ],
+    "description": "Vuex 스토어 생성"
+  },
+  "Vuex 게터": {
+    "prefix": "vx-getter",
+    "body": [
+      "${1:value}: state => state.${1:value},"
+    ],
+    "description": "Vuex 게터"
+  },
+  "Vuex 뮤테이션 메서드": {
+    "prefix": "vx-mutation",
+    "body": [
+      "${1:setMethod}(state, ${3:payload}) {",
+      "\tstate.${2:key} = ${3:payload};",
+      "},"
+    ],
+    "description": "Vuex 뮤테이션 메서드"
+  },
+  "Vuex 액션 메서드": {
+    "prefix": "vx-action",
+    "body": [
+      "${1:updateMethod}({${2:state, commit, getters, dispatch}}, ${3:payload}) {",
+      "\t$0",
+      "},"
+    ],
+    "description": "Vuex 액션 메서드"
+  },
+  "Vuex 액션 메서드(async)": {
+    "prefix": "vx-action-async",
+    "body": [
+      "async ${1:updateMethod}({${2:commit}}, ${3:payload}) {",
+      "\t${0:await}",
+      "},"
+    ],
+    "description": "Vuex 액션 메서드(async)"
+  },
+  "main.js에서 Vuex 스토어 호출": {
+    "prefix": "vx-import-store",
+    "body": ["import { store } from './store';"],
+    "description": "main.js에서 Vuex 스토어 호출"
+  },
+
+  // Vue Router ----------------------------------------------
+  "Vue Router 생성": {
+    "prefix": "vr-create",
+    "body": [
+      "import Vue from 'vue';",
+      "import VueRouter from 'vue-router';",
+      "",
+      "Vue.use(VueRouter);",
+      "",
+      "const routes = [",
+      "  $0",
+      "];",
+      "",
+      "const router = new VueRouter({",
+      "  // mode: 'history',",
+      "  routes",
+      "});"
+    ],
+    "description": "Vue Router 생성"
+  },
+  "Vue Router 라우트": {
+    "prefix": "vr-route",
+    "body": [
+      "{",
+      "  path: '/${1:라우트_패스}',",
+      "  name: '${2:라우트_이름}',",
+      "  component: ${3:() => import(/* webpackChunkName: '${2:라우트_이름}' */ '@/${4:views}/${5:컴포넌트}.vue')}",
+      "},"
+    ],
+    "description": "Vue Router 라우트"
+  },
+  "Webpack 청크(Chunk) 이름": {
+    "prefix": "webpack-chunk-name",
+    "body": [
+      "/* webpackChunkName: '$1' */"
+    ],
+    "description": "Webpack 청크(Chunk) 이름"
+  },
+  "Vue Router 리디렉션": {
+    "prefix": "vr-redirect",
+    "body": [
+      "{ path: '/${1:라우트_패스}', redirect: { name: '${2:리디렉션_라우트_이름}' } },"
+    ],
+    "description": "Vue Router 리디렉션"
+  },
+  "Vue Router 404 오류 페이지": {
+    "prefix": "vr-404",
+    "body": [
+      "{ path: '*', component: ${1:PageNotFound} },"
+    ],
+    "description": "Vue Router 404 오류 페이지"
+  },
+
+  // Nuxt.js -------------------------------------------------
+  "nuxt.js 헤드 메서드": {
+    "prefix": "nx-head",
+    "body": [
+      "head() {",
+      "  return {",
+      "    $0",
+      "  }",
+      "}, "
+    ],
+    "description": "nuxt.js 헤드 메서드"
+  },
+  "nuxt.js 비동기 데이터": {
+    "prefix": "nx-asyncdata",
+    "body": [
+      "asyncData(${1:context}, ${2:callback}) {",
+      "\t$0",
+      "},"
+    ],
+    "description": "Nuxt 비동기 데이터"
+  },
+  "Nuxt.js - Open Graph 프로토콜": {
+    "prefix": "nx-og",
+    "body": [
+      "{ property: 'og:type', content: 'website' },",
+      "{ property: 'og:image', content: '${1:이미지 경로}' },",
+      "{ property: 'og:site_name', content: '${2:사이트 이름}' },",
+      "{ property: 'og:url', content: '${3:사이트 경로}' },",
+      "{ property: 'og:title', content: '${4:사이트 타이틀}' },",
+      "{ property: 'og:description', content: '${5:사이트 설명}' },",
+      "{ property: 'og:locale', content: 'ko-KR' },",
+      "{ property: 'og:locale:alternate', content: 'en-US' },"
+    ],
+    "description": "Nuxt.js - Open Graph 프로토콜"
+  },
+
+  // VuePress ------------------------------------------------
+  "VuePress 환경설정(Config)": {
+    "prefix": "vp-config",
+    "body": [
+      "module.exports = {",
+      "",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  // 헤드(HEAD)",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  // i18n 설정",
+      "  // https://vuepress.vuejs.org/guide/i18n.html#site-level-i18n-config",
+      "  locales: {",
+      "    '/': { lang: '${1:ko-KR}' }",
+      "  },",
+      "  // 페이지 제목",
+      "  title: '${2: VuePress 러닝 마스터}',",
+      "  // 페이지 설명",
+      "  description: '${3: VuePress를 마스터 해봅시다!}',",
+      "  // <head> 콘텐츠 추가",
+      "  head: [",
+      "    ['link', { rel: 'icon', href: '/${4:images/vue-logo.png}' }]",
+      "  ],",
+      "",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  // 테마 설정(THEME CONFIGURATION)",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  themeConfig: {",
+      "",
+      "    // Navbar 로고",
+      "    logo: `/${4:images/vue-logo.png}`,",
+      "",
+      "    // Navbar 내비게이션 링크",
+      "    nav: [",
+      "      // 드롭다운 메뉴 설정 시, items 속성(배열) 추가",
+      "      { text: '${5:가이드북}', link: '/${6:guidebook}/' }",
+      "    ],",
+      "",
+      "    // 사이드바",
+      "    sidebar: [",
+      "      // CASE. [경로, 이름] 설정",
+      "      // '/',",
+      "      // ['/guidebook/', '가이드북']",
+      "",
+      "      // CASE. 그룹으로 작성할 경우",
+      "      {",
+      "        title: '${5:가이드북}',",
+      "        // ↴ 접힘(collapse) 설정",
+      "        // collapsable: false,",
+      "        children: [",
+      "          '/${6:guidebook}/',",
+      "        ]",
+      "      }",
+      "    ],",
+      "    ",
+      "    // 중첩 헤더 링크 표시 설정 (0-2)",
+      "    // 0: 표시 안 함",
+      "    // 1: <h2> 까지 표시",
+      "    // 2: <h2>, <h3> 까지 표시",
+      "    // sidebarDepth: 2,",
+      "",
+      "    // 모든 중첩 헤더 링크 표시 설정",
+      "    // displayAllHeaders: true,",
+      "",
+      "    // 활성 헤드 링크 설정",
+      "    // ↴ 페이지 스크롤 시, 헤더 링크 URL에 표시 (비 활성화 시, 성능 향상)",
+      "    // activeHeaderLinks: false,",
+      "    ",
+      "    // 검색 설정",
+      "    // search: false,",
+      "    // searchMaxSuggestions: 10,",
+      "",
+      "    // 서비스워커 설정",
+      "    serviceWorker: {",
+      "      // updatePopup: { ",
+      "      //   message: \"업데이트 된 새로운 콘텐츠를 활성화하겠습니까?\", ",
+      "      //   buttonText: \"새로고침\"",
+      "      // }",
+      "    }",
+      "",
+      "  },",
+      "",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  // 마크다운(MARKDOWN)",
+      "  // https://vuepress.vuejs.org/config/#markdown",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  markdown: {",
+      "    // 코드 라인 숫자 표시 설정",
+      "    lineNumbers: true,",
+      "    // 외부 링크 ",
+      "    // externalLinks: { target: '_blank', rel: 'noopener noreferrer' },",
+      "    // markdown-it-anchor 옵션",
+      "    // anchor: { permalink: true, permalinkBefore: true, permalinkSymbol: '#' },",
+      "    // markdown-it-table-of-contents 옵션",
+      "    // toc: { includeLevel: [2, 3] }",
+      "  },",
+      "",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  // 플러그인(PLUGIN)",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  plugins: [",
+      "    '@vuepress/back-to-top',",
+      "    [",
+      "      '@vuepress/medium-zoom',",
+      "      { selector: '.zoom img' }",
+      "    ]",
+      "  ],",
+      "",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  // 웹팩(WEBPACK)",
+      "  // https://vuepress.vuejs.org/config/#configurewebpack",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  configureWebpack: {",
+      "    resolve: {",
+      "      alias: {",
+      "        // ↴ 별칭(alias) 설정",
+      "        // '@alias': 'path/to/some/dir'",
+      "      }",
+      "    }",
+      "  },",
+      "",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  // 개발(DEV) 설정",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  // host: 'localhost',",
+      "  // port: '9090',",
+      "  // ↴ {user}.github.io/{repo}로 배포할 경우, 저장소 이름 설정",
+      "  // base: '/repo/',",
+      "",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  // 빌드(BUILD) 설정",
+      "  // ————————————————————————————————————————————————————————————————",
+      "  // dest: 'repo'",
+      "  // ↴ IE를 고려하지 않을 경우 true 설정. 속도 향상",
+      "  // evergreen: true,",
+      "  // ↴ PWA 사용 설정.",
+      "  // serviceWorker: true",
+      "}"
+    ],
+    "description": "VuePress 환경설정(Config)"
+  },
+
+}

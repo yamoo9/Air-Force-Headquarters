@@ -1,0 +1,225 @@
+{
+	"Vue 데이터": {
+    "prefix": "v-data",
+    "body": [
+      "data () {",
+      "\treturn {",
+      "\t\t$0",
+      "\t}",
+      "},"
+    ],
+    "description": "Vue 데이터"
+  },
+
+  "Vue 화살표 함수 데이터": {
+    "prefix": "v-data-arrow",
+    "body": [
+      "data: () => ({",
+      "\t$0",
+      "}),"
+    ],
+    "description": "Vue 화살표 함수 데이터"
+  },
+
+  "Vue 배열 속성 전달": {
+    "prefix": "v-props",
+    "body": [
+      "props: [$0],"
+    ],
+    "description": "Vue 배열 속성 전달"
+  },
+
+  "Vue 객체 속성 전달": {
+    "prefix": "v-props-o",
+    "body": [
+      "props: {",
+      "  type: ${1:String},",
+      "  ${3:required: ${2:false | true},",
+      "  }${0:default: ${4:null},}",
+      "},"
+    ],
+    "description": "Vue 객체 속성 전달"
+  },
+
+  "Vue 메서드": {
+    "prefix": "v-methods",
+    "body": [
+      "methods: {",
+      "\t$0",
+      "},"
+    ],
+    "description": "Vue 메서드"
+  },
+
+  "Vue 계산된 속성": {
+    "prefix": "v-computed",
+    "body": [
+      "computed: {",
+      "  $0",
+      "},"
+    ],
+    "description": "Vue 계산된 속성"
+  },
+
+  "Vue 관찰 속성": {
+    "prefix": "v-watch",
+    "body": [
+      "watch: {",
+      "  ${1:관찰할 속성}(value, oldValue) {",
+      "    $0",
+      "  }",
+      "},"
+    ],
+    "description": "Vue 관찰 속성"
+  },
+  "Vue 관찰 속성(옵션)": {
+    "prefix": "v-watch-options",
+    "body": [
+      "watch: {",
+      "  ${1:관찰할 속성}: {",
+      "    immediate: ${2:true},",
+      "    deep: ${3:true},",
+      "    handler(value, oldValue) {",
+      "      $0",
+      "    }",
+      "  }",
+      "},"
+    ],
+    "description": "Vue 관찰 속성(옵션)"
+  },
+
+  "Vue 컴포넌트 로컬 등록": {
+    "prefix": "v-components",
+    "body": [
+      "components: { $0 },"
+    ],
+    "description": "Vue 컴포넌트"
+  },
+
+  "Vue 컴포넌트 호출": {
+    "prefix": "v-import",
+    "body": ["import ${2:컴포넌트} from '@/${1:components}/${2:컴포넌트}${3:.vue}';"],
+    "description": "Vue 컴포넌트 호출"
+  },
+
+  "Vue 라이브러리 호출": {
+    "prefix": "v-import-lib",
+    "body": [
+      "import { ${2:속성} } from '${1:라이브러리}';"
+    ],
+    "description": "Vue 라이브러리 호출"
+  },
+
+  "Vue + GSAP 라이브러리 호출": {
+    "prefix": "v-import-gsap",
+    "body": [
+      "import { TimelineMax, ${1:Ease} } from 'gsap'"
+    ],
+    "description": "Vue + GSAP 라이브러리 호출"
+  },
+
+  "Vue 필터": {
+    "prefix": "v-filter",
+    "body": [
+      "filters: {",
+      "\t${1:필터 이름}: function(${2:value}) {",
+      "\t\treturn ${2:value}${0};",
+      "\t}",
+      "}"
+    ],
+    "description": "vue 필터"
+  },
+
+  "Vue 커스텀 디렉티브": {
+    "prefix": "v-directive",
+    "body": [
+      "Vue.directive('디렉티브 이름', {",
+      "  bind(el, binding, vnode) {",
+      "    $0",
+      "  }",
+      "});"
+    ],
+    "description": "Vue 커스텀 디렉티브"
+  },
+
+  "Vue 믹스인 정의": {
+    "prefix": "v-mixin",
+    "body": [
+      "const ${1:믹스인 이름} = {",
+      "  mounted() {",
+      "    console.log(`\\${${1:믹스인 이름}\\} 믹스인이 성공적으로 반영되었습니다. :-)`);",
+      "  },",
+      "};"
+    ],
+    "description": "Vue 믹스인 정의"
+  },
+
+  "Vue 믹스인 등록": {
+    "prefix": "v-mixins",
+    "body": [
+      "mixins: [ $0 ],"
+    ],
+    "description": "Vue 믹스인 등록"
+  },
+
+  "Vue 트랜지션 훅(JS)": {
+    "prefix": "v-transition-js-hook",
+    "body": [
+      "${1:beforeEnter | enter | beforeLeave | leave}(el${2:, done}) {",
+      "  $0",
+      "},"
+    ],
+    "description": "Vue 트랜지션 훅(JS)"
+  },
+
+  "Vue 속성 상속": {
+    "prefix": "v-inheritAttrs",
+    "body": [
+      "inheritAttrs: ${1: true | false}"
+    ],
+    "description": "Vue 속성 상속"
+  },
+
+  "Vue 플러그인": {
+    "prefix": "v-plugin",
+    "body": [
+      "// 플러그인 객체",
+      "var vuePlugin = {",
+      "  // 플러그인 환경설정 객체",
+      "  config: {},",
+      "  // 플러그인 설치 함수",
+      "  install: function(Vue, options){",
+      "    // 전역 디렉티브 추가",
+      "    Vue.directive('디렉티브-이름', {\\});",
+      "    // 전역 믹스인 추가",
+      "    // 믹스인 객체 설정",
+      "    Vue.mixin({",
+      "      mounted: function(){\\}",
+      "    \\});",
+      "    // 인스턴스 속성/메서드 추가",
+      "    Vue.prototype.\\$instanceProperty = '';",
+      "    Vue.prototype.\\$instanceMethod = function(options){\\};",
+      "  }",
+      "};"
+    ],
+    "description": "Vue 플러그인"
+  },
+
+  "Vue 유닛 테스트": {
+    "prefix": "v-test",
+    "body": [
+      "import Vue from 'vue'",
+      "import ${1:HelloWorld} from './components/${1:HelloWorld}'",
+      "",
+      "describe('${1:HelloWorld}.vue', () => {",
+      "\tit('${2:렌더링 테스트}', () => {",
+      "\t\tconst Constructor = Vue.extend(${1:HelloWorld})",
+      "\t\tconst vm = new Constructor().$mount()",
+      "\t\texpect(vm.$el.querySelector('.hello h1').textContent)",
+      "\t\t\t.to.equal(${3:'Welcome to Your Vue.js App'})",
+      "\t})",
+      "})"
+    ],
+    "description": "Vue 유닛 테스트"
+  },
+}
