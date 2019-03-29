@@ -1,9 +1,9 @@
 <template>
   <header class="app-header">
     <h1 class="brand">
-      <a v-if="checkBrandType" :href="brand.href" target="_blank">
+      <router-link v-if="checkBrandType" :to="{ name: 'ProductList' }">
         <span class="a11y-hidden">{{ brand.title }}</span>
-      </a>
+      </router-link>
       <a v-else :href="brand.href" class="brand-text">{{ brand.title }}</a>
     </h1>
     <app-button class="is-open" @click.native="onShowNavigation">
