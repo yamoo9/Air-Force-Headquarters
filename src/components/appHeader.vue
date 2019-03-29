@@ -11,14 +11,25 @@
     </app-button>
     <nav class="app-navigation" :class="navigationClassViewState">
       <ul class="reset-list">
-        <li v-for="item in navigation" :key="item.id">
-          <a :href="item.href" target="_blank">{{ item.text }}</a>
+        <li v-for="(item, i) in navigation" :key="item.id">
+          <a
+            :ref="`navLink${i}`"
+            :tabindex="changeFocusState"
+            :href="item.href"
+            target="_blank"
+            @keydown.shift.tab="onCheckBlurMoveToCloseButton(i)"
+          >
+            {{ item.text }}
+          </a>
         </li>
       </ul>
       <app-button
+        ref="closeBtn"
         class="is-close-menu"
         aria-label="메뉴 닫기"
+        :tabindex="changeFocusState"
         @click.native="onHideNavigation"
+        @keydown.tab.native="onCheckBlurMoveToFirstNavLinkItem"
       >
         ×
       </app-button>
@@ -42,13 +53,44 @@ export default {
     navigationClassViewState() {
       return this.isShowNavigation ? 'is-active' : null
     },
+    changeFocusState() {
+      return this.isShowNavigation ? 0 : -1
+    },
+  },
+  watch: {
+    isShowNavigation(value) {
+      if (value) {
+        document.addEventListener('keyup', this.toggleEscAction.bind(this))
+      } else {
+        document.removeEventListener('keyup', this.toggleEscAction)
+      }
+    },
   },
   methods: {
+    toggleEscAction(e) {
+      if (e.key === 'Escape') {
+        this.onHideNavigation()
+      }
+    },
     onShowNavigation() {
       this.isShowNavigation = true
     },
     onHideNavigation() {
       this.isShowNavigation = false
+    },
+    onCheckBlurMoveToFirstNavLinkItem(e) {
+      if (!e.shiftKey) {
+        window.setTimeout(() => {
+          this.$refs.navLink0[0].focus()
+        }, 0)
+      }
+    },
+    onCheckBlurMoveToCloseButton(i) {
+      if (i === 0) {
+        window.setTimeout(() => {
+          this.$refs.closeBtn.$el.focus()
+        }, 0)
+      }
     },
   },
 }
