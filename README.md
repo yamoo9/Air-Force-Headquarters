@@ -27,18 +27,18 @@ Vue.js 프레임워크를 활용해 제작된 결과물
 
 ### 실습 자료
 
-#### 1. Vue.js 라이브러리 (with vue.js)
+<br>
 
-Vue.js 라이브러리 학습 진행을 위한 자료 입니다.
+**Vue.js 라이브러리 (with vue.js)**
 
 자료 | 설명
 --- | ---
 [APRVD.7z](https://github.com/yamoo9/Air-Force-Headquarters/raw/master/_/APRVD.7z) | APRVD UI: Vue.js 라이브러리 활용
 [BandiZip](https://drive.google.com/open?id=1NzP_96VPxBudyhCtT7BXnnyJtp5wKCiG) | 7z, zip 압축/해제 도구 ([website](https://kr.bandisoft.com/bandizip/))
 
-#### 2. Vue.js 프레임워크 (with Vue CLI 3, Axios)
+<br>
 
-Vue.js 프레임워크 학습 진행을 위한 자료 입니다.
+**Vue.js 프레임워크 (with Vue CLI 3, Axios)**
 
 자료 | 설명
 --- | ---
@@ -61,9 +61,9 @@ Vue.js 프레임워크 학습 진행을 위한 자료 입니다.
 [lesson16.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson16.zip) | 이디야(Ediya) UI → 배포(build : [※ 참고](https://github.com/vuejs/vue-cli/issues/3678))
 [lesson17.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson17.zip) | 이디야(Ediya) UI 튜토리얼 완료
 
-#### 3. Vuex 라이브러리
+<br>
 
-Vuex 라이브러리 학습 진행을 위한 자료 입니다.
+**Vuex 라이브러리**
 
 자료 | 설명
 --- | ---
@@ -73,9 +73,9 @@ Vuex 라이브러리 학습 진행을 위한 자료 입니다.
 [lesson20.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson20.zip) | 이디야(Ediya) UI → Vuex 모듈 네임스페이스 활용
 [lesson21.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson21.zip) | 이디야(Ediya) UI Vuex 튜토리얼 완료
 
-#### 4. Vue Router 라이브러리
+<br>
 
-Vue Router 라이브러리 학습 진행을 위한 자료 입니다.
+**Vue Router 라이브러리**
 
 자료 | 설명
 --- | ---
