@@ -1,5 +1,7 @@
 import api from '@/api'
 
+export const namespaced = true
+
 export const state = {
   navigation: [],
 }

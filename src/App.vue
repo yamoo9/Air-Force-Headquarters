@@ -13,18 +13,21 @@ import { mapState, mapActions } from 'vuex'
 export default {
   name: 'app',
   created() {
+    this.fetchBrand()
     this.fetchEdiyaNavigation()
     this.fetchEdiyaMenu()
   },
   computed: {
-    ...mapState({
-      brand: (state) => state.brand.brand,
-      navigation: (state) => state.navigation.navigation,
-      ediyaMenu: (state) => state.ediyaMenu.ediyaMenu,
-    }),
+    ...mapState('brand', ['brand']),
+    ...mapState('navigation', ['navigation']),
+    ...mapState('ediyaMenu', ['ediyaMenu']),
   },
   methods: {
-    ...mapActions(['fetchEdiyaNavigation', 'fetchEdiyaMenu']),
+    ...mapActions({
+      fetchBrand: 'brand/fetchBrand',
+      fetchEdiyaNavigation: 'navigation/fetchEdiyaNavigation',
+      fetchEdiyaMenu: 'ediyaMenu/fetchEdiyaMenu',
+    }),
   },
 }
 </script>

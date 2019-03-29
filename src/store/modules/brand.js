@@ -1,6 +1,7 @@
 import api from '@/api'
 
 export default {
+  namespaced: true,
   state: {
     brand: null,
   },
@@ -10,7 +11,7 @@ export default {
     },
   },
   actions: {
-    fetchEdiyaNavigation({ commit }) {
+    fetchBrand({ commit }) {
       api.getEdiyaNavigation().then(({ brand }) => {
         commit('setBrand', { ...brand, type: 'image' })
       })

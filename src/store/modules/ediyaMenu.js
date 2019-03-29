@@ -2,6 +2,7 @@ import Vue from 'vue'
 import api from '@/api'
 
 export default {
+  namespaced: true,
   state: {
     ediyaMenu: [],
   },
