@@ -8,22 +8,19 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
   name: 'app',
   created() {
-    this.$store.dispatch('fetchEdiyaNavigation')
-    this.$store.dispatch('fetchEdiyaMenu')
+    this.fetchEdiyaNavigation()
+    this.fetchEdiyaMenu()
   },
   computed: {
-    brand() {
-      return this.$store.state.brand
-    },
-    navigation() {
-      return this.$store.state.navigation
-    },
-    ediyaMenu() {
-      return this.$store.state.ediyaMenu
-    },
+    ...mapState(['brand', 'navigation', 'ediyaMenu']),
+  },
+  methods: {
+    ...mapActions(['fetchEdiyaNavigation', 'fetchEdiyaMenu']),
   },
 }
 </script>
