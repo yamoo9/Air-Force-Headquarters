@@ -27,7 +27,18 @@ Vue.js 프레임워크를 활용해 제작된 결과물
 
 ### 실습 자료
 
-수업 진행 내용 학습자료 입니다.
+#### 1. Vue.js 라이브러리 (with vue.js)
+
+Vue.js 라이브러리 학습 진행을 위한 자료 입니다.
+
+자료 | 설명
+--- | ---
+[APRVD.7z](https://github.com/yamoo9/Air-Force-Headquarters/raw/master/_/APRVD.7z) | APRVD UI: Vue.js 라이브러리 활용
+[BandiZip](https://drive.google.com/open?id=1NzP_96VPxBudyhCtT7BXnnyJtp5wKCiG) | 7z, zip 압축/해제 도구 ([website](https://kr.bandisoft.com/bandizip/))
+
+#### 2. Vue.js 프레임워크 (with Vue CLI 3, Axios)
+
+Vue.js 프레임워크 학습 진행을 위한 자료 입니다.
 
 자료 | 설명
 --- | ---
