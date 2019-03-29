@@ -17,7 +17,11 @@ export default {
     this.fetchEdiyaMenu()
   },
   computed: {
-    ...mapState(['brand', 'navigation', 'ediyaMenu']),
+    ...mapState({
+      brand: (state) => state.brand.brand,
+      navigation: (state) => state.navigation.navigation,
+      ediyaMenu: (state) => state.ediyaMenu.ediyaMenu,
+    }),
   },
   methods: {
     ...mapActions(['fetchEdiyaNavigation', 'fetchEdiyaMenu']),
