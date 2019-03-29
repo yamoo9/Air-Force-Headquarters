@@ -69,3 +69,6 @@ Vuex 라이브러리 학습 진행을 위한 자료 입니다.
 --- | ---
 [lesson17.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson17.zip) | 이디야(Ediya) UI → Vuex 스토어 설치/구성
 [lesson18.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson18.zip) | 이디야(Ediya) UI → Vuex: 맵(map) 헬퍼 활용
+[lesson19.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson19.zip) | 이디야(Ediya) UI → Vuex 모듈 활용
+[lesson20.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson20.zip) | 이디야(Ediya) UI → Vuex 모듈 네임스페이스 활용
+[lesson21.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson21.zip) | 이디야(Ediya) UI Vuex 튜토리얼 완료
