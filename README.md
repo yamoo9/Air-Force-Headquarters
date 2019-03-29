@@ -60,3 +60,12 @@ Vue.js 프레임워크 학습 진행을 위한 자료 입니다.
 [lesson15.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson15.zip) | 이디야(Ediya) UI → async/await 활용
 [lesson16.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson16.zip) | 이디야(Ediya) UI → 배포(build : [※ 참고](https://github.com/vuejs/vue-cli/issues/3678))
 [lesson17.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson17.zip) | 이디야(Ediya) UI 튜토리얼 완료
+
+#### 3. Vuex 라이브러리
+
+Vuex 라이브러리 학습 진행을 위한 자료 입니다.
+
+자료 | 설명
+--- | ---
+[lesson17.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson17.zip) | 이디야(Ediya) UI → Vuex 스토어 설치/구성
+[lesson18.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson18.zip) | 이디야(Ediya) UI → Vuex: 맵(map) 헬퍼 활용
