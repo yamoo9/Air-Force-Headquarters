@@ -1,52 +1,28 @@
 <template>
   <div id="app">
-    <app-header :brand="brand" :navigation="navigation" />
+    <app-header v-if="brand" :brand="brand" :navigation="navigation" />
     <main class="app-main">
-      <app-menu-list :menu="ediyaMenu" />
+      <app-menu-list v-if="ediyaMenu" :menu="ediyaMenu" />
     </main>
   </div>
 </template>
 
 <script>
-import api from './api'
-
 export default {
   name: 'app',
-  data() {
-    return {
-      brand: { type: 'image' },
-      navigation: [],
-      ediyaMenu: [],
-    }
-  },
   created() {
-    this.fetchData()
+    this.$store.dispatch('fetchEdiyaNavigation')
+    this.$store.dispatch('fetchEdiyaMenu')
   },
-  methods: {
-    async fetchData() {
-      const { getEdiyaMenu, getEdiyaNavigation } = api
-
-      this.ediyaMenu = await getEdiyaMenu()
-      this.changeFigureImagePath()
-
-      const { brand, navigation } = await getEdiyaNavigation()
-
-      this.brand = Object.assign(this.brand, brand)
-      this.navigation = navigation
+  computed: {
+    brand() {
+      return this.$store.state.brand
     },
-    changeFigureImagePath() {
-      for (let { figure } of this.ediyaMenu) {
-        for (let key in figure) {
-          if (figure.hasOwnProperty(key) && key === 'name') {
-            this.$set(
-              figure,
-              'path',
-              require(`./assets/images/${figure[key]}.png`)
-            )
-            break
-          }
-        }
-      }
+    navigation() {
+      return this.$store.state.navigation
+    },
+    ediyaMenu() {
+      return this.$store.state.ediyaMenu
     },
   },
 }
