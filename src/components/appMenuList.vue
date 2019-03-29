@@ -10,11 +10,8 @@
 </template>
 
 <script>
-import appMenuListItem from './appMenuListItem.vue'
-
 export default {
   name: 'appMenuList',
-  components: { appMenuListItem },
   props: ['menu'],
 }
 </script>

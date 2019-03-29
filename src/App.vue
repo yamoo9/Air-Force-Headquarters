@@ -9,15 +9,9 @@
 
 <script>
 import api from './api'
-import appHeader from './components/appHeader.vue'
-import appMenuList from './components/appMenuList.vue'
 
 export default {
   name: 'app',
-  components: {
-    appHeader,
-    appMenuList,
-  },
   data() {
     return {
       brand: { type: 'image' },
