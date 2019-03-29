@@ -33,4 +33,9 @@ export default {
       })
     },
   },
+  getters: {
+    getEdiyaMenuItemByName: (state) => {
+      return (name) => state.ediyaMenu.find((item) => item.figure.name === name)
+    },
+  },
 }
