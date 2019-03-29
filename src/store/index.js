@@ -14,6 +14,12 @@ export default new Vuex.Store({
     setEdiyaMenu(state, data) {
       state.ediyaMenu = data
     },
+    setBrand(state, brand) {
+      state.brand = brand
+    },
+    setNavigation(state, navigation) {
+      state.navigation = navigation
+    },
     changeFigureImagePath(state) {
       for (let { figure } of state.ediyaMenu) {
         for (let key in figure) {
@@ -28,12 +34,6 @@ export default new Vuex.Store({
         }
       }
     },
-    setBrand(state, brand) {
-      Vue.set(state, 'brand', { ...brand, type: 'image' })
-    },
-    setNavigation(state, navigation) {
-      state.navigation = navigation
-    },
   },
   actions: {
     fetchEdiyaMenu({ commit }) {
@@ -44,7 +44,7 @@ export default new Vuex.Store({
     },
     fetchEdiyaNavigation({ commit }) {
       api.getEdiyaNavigation().then(({ brand, navigation }) => {
-        commit('setBrand', brand)
+        commit('setBrand', { ...brand, type: 'image' })
         commit('setNavigation', navigation)
       })
     },
