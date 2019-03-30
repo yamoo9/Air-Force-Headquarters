@@ -32,6 +32,13 @@ export default {
         commit('changeFigureImagePath')
       })
     },
+    fetchEdiyaMenuItem({ commit }, figureName) {
+      api.getEdiyaMenu().then((data) => {
+        const findedItem = data.find((item) => item.figure.name === figureName)
+        commit('setEdiyaMenu', [findedItem])
+        commit('changeFigureImagePath')
+      })
+    },
   },
   getters: {
     getEdiyaMenuItemByName: (state) => {
