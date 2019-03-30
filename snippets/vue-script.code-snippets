@@ -222,4 +222,35 @@
     ],
     "description": "Vue 유닛 테스트"
   },
+
+  "Vue Router 내비게이션 가드(컴포넌트)": {
+    "prefix": "vr-navigation-guard-component",
+    "body": [
+      "beforeRoute${1:Enter|Update|Leave}(to, from, next) {",
+      "  next($0)",
+      "},"
+    ],
+    "description": "Vue Router 내비게이션 가드(컴포넌트)"
+  },
+
+  "Vue Router 내비게이션 가드(글로벌)": {
+    "prefix": "vr-navigation-guard-global",
+    "body": [
+      "router.${1:before|after}Each(to, from, next) {",
+      "  $0",
+      "},"
+    ],
+    "description": "Vue Router 내비게이션 가드(글로벌)"
+  },
+
+  "Vue Router 내비게이션 가드(라우트)": {
+    "prefix": "vr-navigation-guard-route",
+    "body": [
+      "beforeEnter:(to, from, next) => {",
+      "  $0",
+      "},"
+    ],
+    "description": "Vue Router 내비게이션 가드(라우트)"
+  }
+
 }
