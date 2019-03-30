@@ -1,5 +1,7 @@
 // CSS 파일 로드
 import '@/assets/app.css'
+// Nprogress CSS
+import 'nprogress/nprogress.css'
 
 import Vue from 'vue'
 import store from './store'
