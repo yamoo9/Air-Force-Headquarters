@@ -63,7 +63,7 @@ Vue.js 프레임워크를 활용해 제작된 결과물
 
 <br>
 
-**Vuex 라이브러리**
+**Vuex 라이브러리 추가**
 
 자료 | 설명
 --- | ---
@@ -75,7 +75,7 @@ Vue.js 프레임워크를 활용해 제작된 결과물
 
 <br>
 
-**Vue Router 라이브러리**
+**Vue Router 라이브러리 추가**
 
 자료 | 설명
 --- | ---
@@ -84,3 +84,12 @@ Vue.js 프레임워크를 활용해 제작된 결과물
 [lesson23.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson23.zip) | 이디야(Ediya) UI → 다이내믹 라우트 페이지 설정
 [lesson24.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson24.zip) | 이디야(Ediya) UI → 오프 캔버스 메뉴 키보드 접근성 향상
 [lesson25.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson25.zip) | 이디야(Ediya) UI Vue Router 튜토리얼 완료
+
+<br>
+
+**nprogress 라이브러리 추가**
+
+자료 | 설명
+--- | ---
+[lesson25.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson25.zip) | 이디야(Ediya) UI → nprogress 설치/구성(Axios 인터셉트)
+[lesson26.zip](https://github.com/yamoo9/Air-Force-Headquarters/archive/lesson26.zip) | 이디야(Ediya) UI → ...
