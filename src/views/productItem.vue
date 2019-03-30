@@ -50,9 +50,11 @@ export default {
   created() {
     // 다이내믹 라우트로 사용자가 직접 이동한 경우,
     // Vuex 스토어 > ediyaMenu 모듈에 비동기 통신 요청
-    if (!this.item) {
-      this.fetchEdiyaMenu()
-    }
+    // Nprogress 바 사용 시, 비동기 통신 요청 설정
+    // if (!this.item) {
+    // this.fetchEdiyaMenu()
+    this.fetchEdiyaMenuItem(this.name)
+    // }
   },
   computed: {
     ...mapGetters(['getEdiyaMenuItemByName']),
@@ -70,7 +72,8 @@ export default {
     },
   },
   methods: {
-    ...mapActions(['fetchEdiyaMenu']),
+    // ...mapActions(['fetchEdiyaMenu']),
+    ...mapActions(['fetchEdiyaMenuItem']),
   },
 }
 </script>

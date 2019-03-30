@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Nprogress from 'nprogress'
 
 const api = axios.create({
   baseURL: 'https://api.myjson.com/bins',
@@ -7,6 +8,17 @@ const api = axios.create({
   //   Accept: 'application/json',
   //   'Content-Type': 'application/json',
   // },
+})
+
+// 인터셉트
+api.interceptors.request.use((config) => {
+  Nprogress.start()
+  return config
+})
+
+api.interceptors.response.use((response) => {
+  Nprogress.done()
+  return response
 })
 
 export default {
